@@ -1,0 +1,48 @@
+import os
+import webbrowser
+
+def assistant():
+    print("Mini Assistant Started (Type commands)")
+    print("Commands:")
+    print("open notepad, open youtube, search, play music")
+    print("open word, open excel, open powerpoint, open calculator")
+    print("type 'exit' to stop")
+
+    while True:
+        command = input("\nEnter command: ").lower()
+
+        if "open notepad" in command:
+            os.system("notepad")
+
+        elif "open youtube" in command:
+            webbrowser.open("https://www.youtube.com")
+
+        elif "search" in command:
+            query = command.replace("search", "")
+            webbrowser.open(f"https://www.google.com/search?q={query}")
+
+        elif "play music" in command:
+            music_path = "C:\\Users\\YourName\\Music"  # change this
+            songs = os.listdir(music_path)
+            os.startfile(os.path.join(music_path, songs[0]))
+
+        elif "open word" in command:
+            os.system("start winword")
+
+        elif "open excel" in command:
+            os.system("start excel")
+
+        elif "open powerpoint" in command:
+            os.system("start powerpnt")
+
+        elif "open calculator" in command:
+            os.system("calc")
+
+        elif "exit" in command:
+            print("Goodbye!")
+            break
+
+        else:
+            print("Command not recognized")
+
+assistant()
